@@ -1,12 +1,14 @@
 package innowisegroup.springwebapp.Entities;
 
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "t_realty")
+@Table(name = "real_estate")
 public class House extends RealEstate {
 
     private String houseType;
@@ -15,8 +17,8 @@ public class House extends RealEstate {
     public House() {
     }
 
-    public House(String city, String street, String houseNumber,
-                 double totalArea, BigDecimal price,  String houseType, double landArea) {
+    public House(String city, String street, String houseNumber, double totalArea, BigDecimal price,
+                 String houseType, double landArea) {
         super(city, street, houseNumber, totalArea, price);
         this.houseType = houseType;
         this.landArea = landArea;

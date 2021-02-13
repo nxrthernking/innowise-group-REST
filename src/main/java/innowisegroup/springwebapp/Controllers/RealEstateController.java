@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/realty")
 public class RealEstateController {
 
     private final RealEstateService realtyService;
@@ -24,12 +24,12 @@ public class RealEstateController {
         return realtyService.getAllRealty();
     }
 
-    @GetMapping("/realty/{id}")
+    @GetMapping("/{id}")
     public RealEstate getOne(@PathVariable Long id){
         return realtyService.getOne(id);
     }
 
-    @DeleteMapping("/realty/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteRealty(@PathVariable Long id){
         realtyService.deleteRealtyById(id);
     }

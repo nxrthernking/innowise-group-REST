@@ -1,10 +1,12 @@
 package innowisegroup.springwebapp.Entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "t_realty")
+@Table(name = "real_estate")
 public abstract class RealEstate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +26,6 @@ public abstract class RealEstate {
         this.houseNumber = houseNumber;
         this.totalArea = totalArea;
         this.price = price;
-
     }
 
     public Long getId() {
@@ -66,7 +67,6 @@ public abstract class RealEstate {
     public void setTotalArea(double totalArea) {
         this.totalArea = totalArea;
     }
-
 
     public BigDecimal getPrice() {
         return price;
