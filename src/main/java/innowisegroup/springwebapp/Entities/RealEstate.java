@@ -1,7 +1,5 @@
 package innowisegroup.springwebapp.Entities;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -75,4 +73,6 @@ public abstract class RealEstate {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+
 }

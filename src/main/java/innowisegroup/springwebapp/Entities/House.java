@@ -1,14 +1,10 @@
 package innowisegroup.springwebapp.Entities;
 
 
-import lombok.Data;
-
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "real_estate")
 public class House extends RealEstate {
 
     private String houseType;
