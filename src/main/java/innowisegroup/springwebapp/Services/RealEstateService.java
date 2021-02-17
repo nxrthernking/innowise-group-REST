@@ -19,15 +19,15 @@ public class RealEstateService {
         return realtyRepository.findAll();
     }
 
+    public RealEstate save(RealEstate realty){
+        return realtyRepository.save(realty);
+    }
+
     public RealEstate getOne(Long id){
         return realtyRepository.findById(id).get();
     }
 
-    public RealEstate addRealty(RealEstate realty){
-        return realtyRepository.save(realty);
-    }
-
-    public void deleteRealtyById(Long id){
-        realtyRepository.deleteById(id);
+    public void delete(RealEstate realEstate){
+        realtyRepository.delete(realEstate);
     }
 }

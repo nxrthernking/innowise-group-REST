@@ -5,6 +5,7 @@ import innowisegroup.springwebapp.Entities.Flat;
 import innowisegroup.springwebapp.Entities.House;
 import innowisegroup.springwebapp.Entities.RealEstate;
 import innowisegroup.springwebapp.Services.RealEstateService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,23 +25,33 @@ public class RealEstateController {
         return realtyService.getAllRealty();
     }
 
-    @GetMapping("/{id}")
-    public RealEstate getOne(@PathVariable Long id){
+    @GetMapping("{id}")
+    public RealEstate getOne(@PathVariable("id") Long id){
         return realtyService.getOne(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteRealty(@PathVariable Long id){
-        realtyService.deleteRealtyById(id);
+    @PostMapping("/flat")
+    public RealEstate addFlat(@RequestBody Flat realEstate){
+        return realtyService.save(realEstate);
     }
 
-    @PostMapping("/flat/add")
-    public RealEstate addFlat(@RequestBody Flat flat){
-        return realtyService.addRealty(flat);
-    }
-
-    @PostMapping("/house/add")
+    @PostMapping("/house")
     public RealEstate addHouse(@RequestBody House house){
-        return realtyService.addRealty(house);
+        return realtyService.save(house);
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Long id){
+        System.out.println(id);
+        //realtyService.delete(realEstate);
+    }
+
+
+    @PutMapping("{id}")
+    public RealEstate update(@PathVariable("id") RealEstate realEstateFromDb,
+                                 @RequestBody RealEstate realEstate){
+        BeanUtils.copyProperties(realEstate,realEstateFromDb,"id");
+        return realtyService.save(realEstateFromDb);
+    }
+
 }
