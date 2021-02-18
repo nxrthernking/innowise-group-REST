@@ -13,8 +13,8 @@ public class Flat extends RealEstate {
     }
 
     public Flat(String city, String street, String houseNumber, double totalArea, BigDecimal price,
-                int numberOfRooms, int floorNumber) {
-        super(city, street, houseNumber, totalArea, price);
+                int numberOfRooms, int floorNumber,boolean isDeleted) {
+        super(city, street, houseNumber, totalArea, price, isDeleted);
         this.numberOfRooms = numberOfRooms;
         this.floorNumber = floorNumber;
     }
@@ -33,5 +33,14 @@ public class Flat extends RealEstate {
 
     public void setFloorNumber(int floorNumber) {
         this.floorNumber = floorNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Flat{" +
+                super.toString() +
+                "numberOfRooms=" + numberOfRooms +
+                ", floorNumber=" + floorNumber +
+                '}';
     }
 }

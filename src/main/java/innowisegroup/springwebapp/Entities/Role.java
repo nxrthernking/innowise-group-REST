@@ -1,7 +1,5 @@
 package innowisegroup.springwebapp.Entities;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity

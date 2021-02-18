@@ -15,6 +15,10 @@ public class RealEstateService {
         this.realtyRepository = realtyRepository;
     }
 
+    public List<RealEstate> getAllRealty(boolean isDeleted){
+        return realtyRepository.findAllByIsDeleted(isDeleted);
+    }
+
     public List<RealEstate> getAllRealty(){
         return realtyRepository.findAll();
     }
@@ -27,7 +31,9 @@ public class RealEstateService {
         return realtyRepository.findById(id).get();
     }
 
-    public void delete(RealEstate realEstate){
-        realtyRepository.delete(realEstate);
+    public void softDelete(Long id){
+        RealEstate realEstate = realtyRepository.getOne(id);
+        realEstate.setDeleted(true);
+        realtyRepository.save(realEstate);
     }
 }

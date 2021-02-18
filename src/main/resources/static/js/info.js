@@ -1,4 +1,3 @@
-let resource = Vue.resource('/app/realty{/id}');
 
 Vue.component('info-real-estate',{
     props:['realEstate'],
@@ -11,6 +10,6 @@ let app = new Vue({
   el: '#info',
   template: '<div><info-real-estate :realEstate="realEstate" /></div>',
   data: {
-        realEstate: JSON.parse(localStorage.user)
+        realEstate: JSON.parse(localStorage.realty)
   }
 });

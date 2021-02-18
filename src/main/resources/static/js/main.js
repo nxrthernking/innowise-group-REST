@@ -7,12 +7,16 @@ Vue.component('realEstate-row',{
         '{{ realEstate.city }},ул.{{realEstate.street}}, д.{{realEstate.houseNumber}}'+
         '<span>'+
             '<button @click="info">Details</button>'+
+            '<button @click="deleteRealty">delete</button>'+
         '</span>'+
         '</li>',
      methods: {
         info: function(){
-            localStorage.user = JSON.stringify(this.realEstate)
+            localStorage.realty = JSON.stringify(this.realEstate)
             document.location="info.html"
+        },
+        deleteRealty: function(){
+            realEstateApi.delete({id:this.realEstate.id});
         }
      }
 
@@ -75,7 +79,8 @@ Vue.component('paginated-list',{
             end = start + this.size;
       return this.listData
                .slice(start, end);
-    }
+    },
+
   },
   template: '<div>'+
                 '<div><button @click="sortByCheapest">Sort by cheapest</button><button @click="sortByExpensive">Sort by expensive</button></div>'+

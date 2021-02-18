@@ -14,8 +14,8 @@ public class House extends RealEstate {
     }
 
     public House(String city, String street, String houseNumber, double totalArea, BigDecimal price,
-                 String houseType, double landArea) {
-        super(city, street, houseNumber, totalArea, price);
+                 String houseType, double landArea,boolean isDeleted) {
+        super(city, street, houseNumber, totalArea, price, isDeleted);
         this.houseType = houseType;
         this.landArea = landArea;
     }
@@ -34,5 +34,14 @@ public class House extends RealEstate {
 
     public void setLandArea(double landArea) {
         this.landArea = landArea;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                super.toString() +
+                "houseType='" + houseType + '\'' +
+                ", landArea=" + landArea +
+                '}';
     }
 }

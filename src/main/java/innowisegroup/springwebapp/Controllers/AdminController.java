@@ -5,9 +5,10 @@ import innowisegroup.springwebapp.Entities.RealEstate;
 import innowisegroup.springwebapp.Entities.User;
 import innowisegroup.springwebapp.Services.RealEstateService;
 import innowisegroup.springwebapp.Services.UserService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController

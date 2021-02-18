@@ -1,10 +1,13 @@
 package innowisegroup.springwebapp.Entities;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "real_estate")
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "className")
 public abstract class RealEstate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,16 +17,18 @@ public abstract class RealEstate {
     private String houseNumber;
     private double totalArea;
     private BigDecimal price;
+    private boolean isDeleted;
 
     public RealEstate() {
     }
 
-    public RealEstate(String city, String street, String houseNumber, double totalArea, BigDecimal price) {
+    public RealEstate(String city, String street, String houseNumber, double totalArea, BigDecimal price, boolean isDeleted) {
         this.city = city;
         this.street = street;
         this.houseNumber = houseNumber;
         this.totalArea = totalArea;
         this.price = price;
+        this.isDeleted = isDeleted;
     }
 
     public Long getId() {
@@ -72,6 +77,24 @@ public abstract class RealEstate {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+    @Override
+    public String toString() {
+        return
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", totalArea=" + totalArea +
+                ", price=" + price ;
+
     }
 
 
