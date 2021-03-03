@@ -2,11 +2,9 @@ package innowisegroup.springwebapp.Entities;
 
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "t_realty")
 public class House extends RealEstate {
 
     private String houseType;
@@ -15,9 +13,9 @@ public class House extends RealEstate {
     public House() {
     }
 
-    public House(String city, String street, String houseNumber,
-                 double totalArea, BigDecimal price,  String houseType, double landArea) {
-        super(city, street, houseNumber, totalArea, price);
+    public House(String city, String street, String houseNumber, double totalArea, BigDecimal price,
+                 String houseType, double landArea,boolean isDeleted) {
+        super(city, street, houseNumber, totalArea, price, isDeleted);
         this.houseType = houseType;
         this.landArea = landArea;
     }
@@ -36,5 +34,14 @@ public class House extends RealEstate {
 
     public void setLandArea(double landArea) {
         this.landArea = landArea;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                super.toString() +
+                "houseType='" + houseType + '\'' +
+                ", landArea=" + landArea +
+                '}';
     }
 }
