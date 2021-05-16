@@ -1,4 +1,4 @@
-let realEstateApi = Vue.resource('/app/realty{/id}');
+let realEstateApi = Vue.resource('/rest/realty{/id}');
 
 Vue.component('realEstate-row',{
     props: ['realEstate'],
