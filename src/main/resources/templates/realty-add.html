@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Новое объявление</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="#" th:action="@{/realty/add/flat}" th:object="${flat}" method="post">
+    <div class="form-group">
+        <label for="formGroupExampleInput">City</label>
+        <input type="text" th:field="*{city}" class="form-control" id="formGroupExampleInput"
+               placeholder="City">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Street</label>
+        <input type="text" th:field="*{street}" class="form-control" id="formGroupExampleInput2"
+               placeholder="Street">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">House number</label>
+        <input type="text" th:field="*{houseNumber}" class="form-control" id="formGroupExampleInput3"
+               placeholder="House number">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Total area</label>
+        <input type="text" th:field="*{totalArea}" class="form-control" id="formGroupExampleInput4"
+               placeholder="Total area">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Price</label>
+        <input type="text" th:field="*{price}" class="form-control" id="formGroupExampleInput5"
+               placeholder="Price">
+    </div>
+</form>
+</body>
+</html>
