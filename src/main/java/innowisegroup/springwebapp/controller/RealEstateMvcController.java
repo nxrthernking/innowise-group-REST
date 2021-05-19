@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping(value = "/realty")
 @RequiredArgsConstructor
@@ -33,5 +35,11 @@ public class RealEstateMvcController {
     public String addFlat(@ModelAttribute Flat flat) {
         realEstateService.save(flat);
         return "redirect:/";
+    }
+
+    @GetMapping(value = "/user")
+    public String getAllUserRealty(Model model, Principal principal){
+        model.addAttribute("realty", realEstateService.getAllUserRealty(principal));
+        return "user-realty";
     }
 }
